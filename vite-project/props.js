@@ -1,6 +1,8 @@
 // Making a Component 'Dynamic' using 'props'
-// props / properties -;
-// Values passed to the components to make those components Dynamic
+// props / properties -;  read-only components that are shared between components.
+// Values passed to the components to make those components Dynamic.
+// A parent component can send data to a child component
+// A component within a parent can send that child component key value pairs
 // refer ; DynamicHello.jsx
 
 // Destructuring props in React
@@ -117,6 +119,74 @@ function Profile(props){
   );
 }
 
+//  Using special children prop to compose components
+// Understanding Children
+// In react, every component can receive props.
+// 'children' prop automatically contains whatever is nested inside a component's tags.
+// eg:
+<MyComponent>
+  <p>This is a child element</p>
+  <button>Click Me</button>
+</MyComponent>
+// here, the nested elements can be accessed via props.children:
+function MyComponent(props){
+  return <div>{props.children}</div>;
+}
+// <p> and <button> are children
+// children can be any valid JSX:button, another component,text, or even a full layout.
+
+import React from "react";
+  function Wrapper({children}){
+    return(
+      <div style={{border: "2px solid #007BFF", padding:"20px",borderRadius:"10px"}}>
+        {children}
+      </div>
+    );
+  }
+  // export default Wrapper;
+
+  import React from "react";
+  import Wrapper from "./Wrapper";
+  function App(){
+    return (
+      <div>
+        <Wrapper>
+          <p>This ia inside the Wrapper Content.</p>
+        </Wrapper>
+        <Wrapper>
+          <button onClick={()=> alert("Button clicked!")}>Click Me</button>
+        </Wrapper>
+
+        <Wrapper>
+          <h2>Title inside Wrapper</h2>
+          <p>Description inside wrapper</p>
+          <button onClick={() => alert("Multiple elements!")}>Action</button>
+        </Wrapper>
+      </div>
+    )
+  }
+  // export default App;
+
+  // task -; Card.js
 
 
+  // Rendering List of Arrays in React Component
+  // map() -; helps to loop through JavaScript
+  // Fruits.jsx
 
+  // Use the map function to loop through every single element of the array.
+
+  // Rendering Array of Objects in React
+  // Objfruit.jsx
+  
+
+  // Rendering Components Inside a Loop
+  // FRuit.jsx
+
+
+  // Fruits => parent component
+  // fruit => child component
+  
+
+  // Conditionally  Rendering JSX and Components
+  
