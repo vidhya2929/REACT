@@ -1,9 +1,17 @@
 export default function Fruit({ name, emoji, price }) {
   return (
-    <div>
-      {name}
-      {emoji} {price}
-    </div>
+    <>                                                    {/*Fragments*/}
+      {/* {name}
+      {emoji} {price} */}
+      {/* {price > 5 ? ( */}
+        <li>
+          {emoji} {name} {price} {soldout ? "soldout": " "}
+        </li>
+      {/* ) : ( */}
+        {/* "" */}
+      {/* )} */}
+      {/*conditionally rendering List items*/}
+    </>
   );
   // if we give li here it becomes list items
 }

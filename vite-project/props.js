@@ -189,4 +189,103 @@ import React from "react";
   
 
   // Conditionally  Rendering JSX and Components
-  
+ if(example){
+  return <li className="item">{name}✅</li>
+}
+  return <li className="item">{name}</li>
+
+// conditionally returning nothing with 'null'
+// If don't want to render anything at all-;
+
+if(isPacked){
+  return null;
+}
+return <li className="item">{name}</li>;
+// Ternary of the above
+return(
+<li className="item">
+  {isPacked ? name + '✅': name}
+</li>
+);
+
+
+// example
+function Item({name, isPacked}){
+  return(
+    <li className="item">
+      {isPacked ? (
+        <del>
+          {name + '✅'}
+        </del>
+      ):(name)}
+    </li>
+  );
+}
+
+export default function  PackingList(){
+  return(
+    <section>
+      <h1>Sally Ride's packing List</h1>
+      <ul>
+        <Item
+        isPacked={true}
+        name="Space suit"
+        />
+        <Item 
+        isPacked={true}
+        name="Helmet with a golden leaf"
+        />
+         <Item 
+        isPacked={false}
+        name="photo of Tam"
+        />
+      </ul>
+    </section>
+  )
+}
+// LOgical && operator
+// With &&, conditionally render the checkmark only if isPacked is true
+
+return (
+  <li className="item">
+    {name} {isPacked && '✅'}   {/*If ispacked, then render the checkmark, otherwise render nothing */}
+  </li>
+);
+// Js '&&' expression returns the value of its right side if the left side is true. If the expression is false, the whole expression becomes false.[don't put numbers on the left side of &&]
+
+
+// Arrow function implicitly returns the expression right after =>, so you didn't need a return statement.
+// if => is followed by a curly brace then write 'return'
+
+// JSX elements directly inside a map() call always need keys!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // JSX ===>>> ConditionalComponent.jsx
+// Components =>>> Code.jsx , Welcome.jsx 
+
+// Conditional Rendering Using Element Variables 
+// ELements are used where -;
+// 2 return statements in a single component (A component should always return a single snippet of jsx code)
+//   ====>>MessageEl.jsx
+
+// Using Ternary Operator in React.
+//    ====>>Ternary.jsx
+// COnditionally Render List items
+//  ==>>>ListCon.jsx
+
+// Conditionally Rendering a Message
+// Message.jsx

@@ -23,6 +23,14 @@
 // Multiple States in React
 // Counter.jsx => incrementBy
 
+// Handling Input Fields in React 
+// ====>>> Form.jsx
+// In react we cannot directly change the value of the input field  -> to change it use the attribute 'onChange'
+
+//Handling Multiple Inputs In Js
+
+
+
 
 
 
@@ -66,7 +74,8 @@ const[index, setIndex] = useState(0);
 // Update the state. When user clicks the button, it calls setIndex(index + 1). index is 0, setIndex[1]. Reat remembers index is now 1 and triggers another render.
 // Second render -; React sees useState(0) -; as React remembers that index is set to 1, it returns [1,setIndex] instead. 
 
-// State is iisolated and private
+// State is isolated and private
 // if render same component twice, each copy will have completely isolated state.Changing one of them will not affect the other.
 
 // State is fully provate to the component declaring it.
+
