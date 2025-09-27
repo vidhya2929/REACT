@@ -331,3 +331,17 @@ export default function Bio(){
     </div>
   );
 }
+
+
+// Styling
+//1)  Inline
+// 2) CSS style sheet
+// 3) CSS Modules  => every single component have different style sheet not a common one 
+// 4) Library like tailwind css
+<h1 style={{color: "blue", fontSize: "140px"}}></h1>  //also assign to a constant.
+
+// CSS Module is required to style a component
+// Componentname.module.css
+//           ||
+//        import styles from"./header.module.css"
+// also give className in the component => className = {styles.header}
