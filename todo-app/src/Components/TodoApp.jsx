@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Form";
 import TodoList from "./TodoList";
+
 export default function Todo() {
-   const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((res) => res.json())
+    .then((data) => {
+      const todosFromAPI = data.map((t) => ({
+        name: t.title,
+        done: t.completed,
+      }));
+      setTodos(todosFromAPI);
+    });
+},[]);
   return (
     <div>
       <h1>Todo App</h1>
