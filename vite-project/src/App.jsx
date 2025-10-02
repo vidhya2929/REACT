@@ -19,6 +19,7 @@ import Users from "./components/Users";
 import ProfileCard from "./components/ProfileCard";
 import Greeting from "./components/Greeting";
 import Coun from "./components/Coun";
+import Fetch from "./components/fetch";
 function App() {
   // const seatNumbers = [1,4,7];
   // const person = {
@@ -31,13 +32,14 @@ function App() {
   };
   return (
     <div className="App">
-      <Coun name="harry" />
+      <Fetch />
+      {/* <Coun name="harry" />
       <Coun name="Ailce" />
       <Coun name="Lilly" />
-      <Coun name="Potter" age={28} />
+      <Coun name="Potter" age={28} /> */}
       {/* <Greeting /> */}
-      {/* < Users />
-      <ProfileCard  name="Alice" age={22}/>
+       {/* < Users /> */}
+     {/*} <ProfileCard  name="Alice" age={22}/>
       <ProfileCard  name="Bob" age={28}/> */}
       {/* <HeiWidth /> */}
       {/* <EffectHook /> */}

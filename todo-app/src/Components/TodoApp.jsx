@@ -27,3 +27,14 @@ export default function Todo() {
 
 
 // whenever mapping through an item and whenever rendering through JSX or component we need to pass a key prop
+
+
+// useState([]) → keeps track of all todos.
+
+// useEffect(...) => fetches todo list once from API when the app loads.
+
+// Renders:
+
+// Form (for adding new tasks)
+
+// TodoList (to display tasks)

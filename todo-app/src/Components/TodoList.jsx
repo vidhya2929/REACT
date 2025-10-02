@@ -8,3 +8,13 @@ export default function TodoList({todos,setTodos}){
     </div>
   )
 }
+
+
+
+
+
+// Receives todos (array) and setTodos.
+
+// Loops (map) through todos.
+
+// Renders one TodoItem for each.

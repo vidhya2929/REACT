@@ -35,3 +35,4 @@ function handleClick() {
   console.log(name); //Still Taylor
 }
 // calling the 'set' function does not change the current state in the already executing code:
+

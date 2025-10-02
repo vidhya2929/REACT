@@ -9,6 +9,7 @@ export default function TodoItem({item, todos, setTodos}){
     console.log(todos);
   }
   return (<div>
+    <input type="checkbox"></input>
     <h3><span onClick={() => handleClick(item.name)} style={{textDecoration: item.done ? "line-through":"none",cursor:"pointer"}}>{item.name}</span> <span>
       <button onClick={() =>handleDelete(item)}>Delete</button>
     </span></h3>
@@ -16,3 +17,12 @@ export default function TodoItem({item, todos, setTodos}){
     </div>)
   
 }
+
+
+// Shows one todo item.
+
+// handleDelete => removes item from list.
+
+// handleClick => toggles done property (strike-through effect).
+
+// Conditional styling => strike-through text if done = true.

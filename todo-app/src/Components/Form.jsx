@@ -25,3 +25,10 @@ export default function Form({todos,setTodos}){
         <button type="Submit">Add</button> {/*The page get refreshed */}
       </form>
 }
+
+
+// Prevents page refresh.
+
+// Adds new todo to todos (through setTodos passed from parent).
+
+// Clears input field.
