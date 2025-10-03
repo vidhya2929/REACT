@@ -87,7 +87,7 @@ return <ul>{listItems}</ul>
 
 // The short <>.....</> fragment syntax won't let to pass a key, so group them into a single <div> or use slightly longer and more explicit <Fragment> syntax:
 
-import {Fragment} from 'react';
+import {Fragment, useEffect} from 'react';
 
 const listy = people.map(person => 
   <Fragment key={person.id}>
@@ -162,3 +162,150 @@ const products = [
 // Success -> Data is available and should be displayed
 
 // Example 
+// UIStates.jsx, ApiState.jsx
+
+
+// Form
+// built- in browser <form> component lets you create interactive controls foe submitting information.
+
+// <form action={search}>
+//   <input name=query/>
+{/* <button type=submit>Search</button> */}
+// <form />
+
+// <form> supports a;; common element props.
+// Pass a  function to the action prop of form to run the function when the form is submitted.
+// action: a URL or a function.
+
+// Whenever we click a button inside the form the form get submitted
+
+// Display a pending state during form submission => useFormStatus
+// pending property returned.
+
+
+// Handling Forms with Controlled Components(Text Inputs)
+// A controlled component in React is when the form's input value is controlled by React State. =>>
+// 1) The value of an input comes from the state.
+// 2) The onChange event updates the state.
+
+// Controlled checkboxes
+// Instead of value, we control checkbox using checled property
+// In onChange, e.target.checked
+
+
+
+
+
+
+
+
+
+
+
+
+
+// UseEffect  =>(fetching data from an API, working with timers, directly updating the DOM)
+// callback fn runs after the component renders
+// the cleanup function runs when the component unmounts OR before re-running the effect
+
+// No dependency array =>> runs after every render and re-render
+// []  ==>> Runs only once when the component mounts
+// [count](with dependencies) ==> runs only when a specific state/prop changes.
+
+// The function returned from useEffect is used for cleanup.(eg: removing event listeners, clearing timers, cancelling API requests)
+
+useEffect(() => {
+  //effect logic here
+  return () => {
+    // cleanup (optional)
+  };
+}, [dependencies])
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Timer running...");
+  }, 1000);
+  return() => {
+    clearInterval(timer);
+    console.log("Timer cleared");
+  };
+}, []);
+
+
+// Passing Functions as Props 
+
+// In react, data usually flows downward(Parent -> Child) via props.
+// Sometimes , the child needs to trigger changes in the  parent.
+// To achieve it, The parent defines a function and passes it to the child as a prop.
+function Parent(){
+  function sayHello(){   //function that parent defines
+    console.log("Hello from Parent!");
+  }
+  return <Child onGreet={sayHello} /> 
+}
+function Child({onGreet}){
+  return <button onClick={onGreet}>Greet</button>;
+}
+
+// Child cannot directly modify parent's state.
+// But child can call a function(from props) -> parent handles the update
+
+// Lifting State Up 
+// In React, state is local to a component.
+// When 2 or more components need to share the same state, Instead of duplicating the same state in multiple places,-;
+// Move the state up to the closest common parent
+// pass the state and the functions to update it down as props.  ==>>........... LIFTING STATE UP.
+
+
+// MOVING STATE TO THE CLOSEST COMMON PARENT SO MULTIPLE CHILDREN CAN SHARE IT(state) THROUGH PROPS 
+// eg: InputBox.jsx  ,  DisplayBox.jsx  , Parent.jsx
+
+
+
+
+
+
+
+// ARRAY METHODS IN REACT(Map, filter, reduce)
+
+//. map() => Rendering Lists
+// used it to render multiple components from data
+const fruit = ["Apple", "Banana", "Mango"];
+export default function FruitList(){
+  return(
+    <ul>
+      {fruits.map((fruit) => (
+        <li key={fruit}>{fruit}</li>
+      ))}
+    </ul>
+  )
+}
+
+// USECASE =; Render lists dynamically from arrays of objects, like posts,products, or users
+
+// .filter() => Creating Subsets
+// returns a new array containing elements that satisfies a condition
+
+const nums = [1,2,3,4,5,6];
+export default function EvenNumbers(){
+  const evens = nums.filter((num) => num % 2 === 0);
+
+  return(
+    <ul>
+      {evens.map((num)=>(
+        <li key={num}>{num}</li>
+      ))}
+    </ul>
+  );
+}
+
+// USECASE =; Filter lists based on search, categoty, or user selection.
+
+// .reduce() => Aggregate Values
+// reduces an array to a single value
+
+const numbs = [10,20,30,40];
+export default function SumNumbers(){
+  const total = numbs.reduce((acc, curr) => acc+curr,0);
+  return <p>Total sum: {total}</p>
+}
