@@ -309,3 +309,13 @@ export default function SumNumbers(){
   const total = numbs.reduce((acc, curr) => acc+curr,0);
   return <p>Total sum: {total}</p>
 }
+
+
+// Local Storage
+// It Stores only strings
+// localStorage.setItem('k',someString), the value saved is a string
+// localStorage.getItem(key) returns
+// the stored string if the key exists,
+// null if the key does not exist.
+// JSON.stringify => converts to string //save to localstorage when expenses change
+// JSON.parse => array(Js array of objects)    //Load from local storage when page loads
